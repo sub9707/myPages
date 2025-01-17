@@ -16,7 +16,13 @@ function App() {
 }
 
 const ThemedApp: React.FC = () => {
-  const { theme } = React.useContext(ThemeContext);
+  const context = React.useContext(ThemeContext);
+  
+  if (!context) {
+    throw new Error('useContext가 ThemeProvider 내에서 사용되지 않음');
+  }
+
+  const { theme } = context;
 
   return (
     <div className={`${styles.app} ${styles[theme]}`}>
