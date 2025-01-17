@@ -1,0 +1,11 @@
+.mainContent {
+  flex-grow: 1;
+  background-color: #1e1e1e;
+  color: white;
+  padding: 10px;
+
+  &.light {
+    background-color: #ffffff;
+    color: #000;
+  }
+} 

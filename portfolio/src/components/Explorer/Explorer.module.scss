@@ -1,0 +1,45 @@
+.explorer {
+  background-color: #252526;
+  color: white;
+  padding: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &.light {
+    background-color: #e0e0e0;
+    color: #000;
+  }
+
+  h3 {
+    margin: 0 0 10px 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin: 5px 0;
+  }
+}
+
+.resizer {
+  width: 0.1rem;
+  background-color: #1a1a1a;
+  cursor: ew-resize;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+
+  &.light{
+    background-color: #a8a8a8;
+  }
+
+  &:hover {
+    background-color: #007acc;
+  }
+} 
