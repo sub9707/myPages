@@ -6,15 +6,11 @@
     "lib": ["ES2023"],
     "module": "ESNext",
     "skipLibCheck": true,
-
-    /* Bundler mode */
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
     "isolatedModules": true,
     "moduleDetection": "force",
-    "noEmit": true,
-
-    /* Linting */
+    "noEmit": false, // 변경
+    "outDir": "./dist", // 추가
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
