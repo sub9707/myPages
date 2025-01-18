@@ -11,7 +11,8 @@
     "declaration": true,               // 타입 정의 파일 생성
     "declarationDir": "./dist/types",  // 타입 정의 파일 출력 디렉토리
     "outDir": "./dist",                // 빌드 결과물 출력 디렉토리
-    "rootDir": "./src"                 // 소스 파일 루트 경로
+    "rootDir": "./src",                 // 소스 파일 루트 경로
+    "moduleResolution": "node",
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
