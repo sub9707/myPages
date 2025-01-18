@@ -1,9 +1,4 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
@@ -13,12 +8,18 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
-    "declarationDir": "./dist/types",  // 타입 정의 파일(.d.ts) 출력 경로
-    "outDir": "./dist",               // 컴파일된 파일 출력 경로
-    "rootDir": "./src",               // 소스 파일 경로
-    "emitDeclarationOnly": false,     // 타입 정의 파일만 생성하지 않음
-    "moduleResolution": "node"        // Node.js 모듈 규칙 사용
+    "declarationDir": "./dist/types",  // 타입 정의 파일을 저장할 디렉토리
+    "outDir": "./dist",                // 컴파일된 파일을 저장할 디렉토리
+    "rootDir": "./src",                // 소스 파일 경로
+    "emitDeclarationOnly": false,      // 타입 정의 파일만 생성하지 않음
+    "moduleResolution": "node"         // Node.js 모듈 해석 방식
   },
-  "include": ["src/**/*", "svg.d.ts"],
-  "exclude": ["node_modules", "dist"] // 빌드 대상에서 제외
+  "include": [
+    "src/**/*",                        // 모든 src 폴더 내 파일 포함
+    "svg.d.ts"
+  ],
+  "exclude": [
+    "node_modules",                    // node_modules는 제외
+    "dist"                             // dist는 제외
+  ]
 }
