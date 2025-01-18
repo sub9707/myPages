@@ -1,9 +1,4 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ],
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
@@ -12,12 +7,12 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
+    "composite": true,
     "declaration": true,               // 타입 정의 파일 생성
     "declarationDir": "./dist/types",  // 타입 정의 파일 출력 디렉토리
-    "outDir": "./dist",                // 컴파일 출력 디렉토리
-    "rootDir": "./src",                // 소스 파일 위치
-    "emitDeclarationOnly": false       // 타입 정의 파일만 생성하지 않도록 설정
+    "outDir": "./dist",                // 빌드 결과물 출력 디렉토리
+    "rootDir": "./src"                 // 소스 파일 루트 경로
   },
-  "include": ["src", "svg.d.ts", "**/*.svg?react"],
-  "exclude": ["node_modules", "dist"]  // 빌드 대상에서 제외할 디렉토리
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
