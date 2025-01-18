@@ -2,23 +2,22 @@
   "compilerOptions": {
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-    "target": "es2020",
+    "target": "ES2020",
     "useDefineForClassFields": true,
-    "lib": ["es2020", "dom", "dom.iterable"],
-    "module": "esnext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
     "skipLibCheck": true,
-    "moduleResolution": "node",
-    "jsx": "react-jsx",                // JSX 자동 변환
+    "moduleResolution": "bundler",
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": false, // 변경
+    "outDir": "./dist", // 추가
+    "jsx": "react-jsx",
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noUncheckedIndexedAccess": true,
     "noFallthroughCasesInSwitch": true,
-    "declaration": true,
-    "declarationDir": "./dist/app/types", // 타입 정의 파일 출력 디렉토리
-    "outDir": "./dist/app",               // 출력 디렉토리
-    "rootDir": "./src"                    // 소스 파일 위치
+    "noUncheckedSideEffectImports": true
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "include": ["src"]
 }
