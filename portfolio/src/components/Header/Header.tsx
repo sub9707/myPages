@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ theme }) => {
     throw new Error('ThemeContext must be used within a ThemeProvider');
   }
 
-  const { toggleTheme } = themeContext;
+  // const { toggleTheme } = themeContext;/
 
   return (
     <div className={`${styles.header} ${styles[theme]}`}>
