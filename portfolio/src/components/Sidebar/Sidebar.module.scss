@@ -6,10 +6,12 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-
+  border-right: 1px solid black;
+  
   &.light {
     background-color: #f0f0f0;
     color: #000;
+    border-right: 1px solid #353535;
   }
 
   ul {

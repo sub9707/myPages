@@ -3,6 +3,9 @@ import { ThemeContext } from '../../context/ThemeContext';
 import styles from './Header.module.scss';
 
 import Logo from '/src/assets/icons/code.png';
+import Minimum from '/src/assets/icons/minimum.svg';
+import Maximum from '/src/assets/icons/maximum.svg';
+import Close from '/src/assets/icons/close.svg';
 
 interface HeaderProps {
   theme: 'light' | 'dark';
@@ -35,8 +38,9 @@ const Header: React.FC<HeaderProps> = ({ theme }) => {
 
       {/* 오른쪽 명령 버튼 */}
       <div className={styles.commands}>
-        <button onClick={toggleTheme}>Toggle Theme</button>
-        <button>Close</button>
+        <img src={Minimum} alt='minimum'/>
+        <img src={Maximum} alt='maximum'/>
+        <img src={Close} alt='close'/>
       </div>
     </div>
   );
