@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run build:types && react-scripts build",
+    "build": "npm run build:types && npm run build:app",
     "build:types": "tsc --emitDeclarationOnly",
+    "build:app": "react-scripts build",
     "lint": "eslint .",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",

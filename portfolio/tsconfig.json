@@ -13,12 +13,12 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
-    "declarationDir": "./dist/types",  // Output directory for .d.ts files
-    "outDir": "./dist",               // Output directory for compiled JavaScript
-    "rootDir": "./src",               // Root directory of source files
-    "emitDeclarationOnly": false,     // Emit both .js and .d.ts files
-    "moduleResolution": "node"        // Ensure proper module resolution
+    "declarationDir": "./dist/types",  // 타입 정의 파일(.d.ts) 출력 경로
+    "outDir": "./dist",               // 컴파일된 파일 출력 경로
+    "rootDir": "./src",               // 소스 파일 경로
+    "emitDeclarationOnly": false,     // 타입 정의 파일만 생성하지 않음
+    "moduleResolution": "node"        // Node.js 모듈 규칙 사용
   },
   "include": ["src/**/*", "svg.d.ts"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist"] // 빌드 대상에서 제외
 }
