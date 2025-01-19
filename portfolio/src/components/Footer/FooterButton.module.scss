@@ -1,0 +1,30 @@
+// Button.module.scss
+.button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    background-color: transparent;
+    border: none;
+    color: inherit;
+  
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  
+    .icon {
+      width: 1rem;
+      height: 1rem;
+      margin-right: 0.5rem;
+    }
+  
+    .text {
+      font-size: 0.8rem;
+    }
+  
+    &:only-child {
+      justify-content: center;
+    }
+  }
+  
