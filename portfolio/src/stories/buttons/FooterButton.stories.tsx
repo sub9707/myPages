@@ -12,7 +12,7 @@ const Template: StoryFn<typeof FooterButton> = (args) => <FooterButton {...args}
 
 export const IconOnly = Template.bind({});
 IconOnly.args = {
-  icon: 'https://via.placeholder.com/24', // 임시 아이콘 URL
+  icon: '/src/assets/icons/bug.svg', // 임시 아이콘 URL
   altText: 'Placeholder Icon',
 };
 
@@ -23,7 +23,7 @@ TextOnly.args = {
 
 export const IconWithText = Template.bind({});
 IconWithText.args = {
-  icon: 'https://via.placeholder.com/24', // 임시 아이콘 URL
+  icon: '/src/assets/icons/bug.svg', // 임시 아이콘 URL
   text: 'Home',
   altText: 'Placeholder Icon',
 };

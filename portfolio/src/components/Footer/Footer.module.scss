@@ -19,7 +19,6 @@
     span{
       width: auto;
       height: 100%;
-      padding-inline: 0.8rem;
       font-size: 0.8rem;
     }
   }
@@ -28,6 +27,7 @@
     span{
       &:first-child{
         background-color: #32815d;
+        padding-inline: 0.8rem;
       }
     }
   }
