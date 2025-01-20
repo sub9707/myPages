@@ -7,7 +7,10 @@ interface ThemeContextType {
   toggleTheme: () => void;
 }
 
-export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+export const ThemeContext = createContext<ThemeContextType>({
+  theme:'dark',
+  toggleTheme: ()=>{},
+});
 
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<Theme>(() => {
@@ -15,10 +18,6 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) =
     return savedTheme ? (savedTheme as Theme) : 'light';
   });
 
-  useEffect(() => {
-    localStorage.setItem('theme', theme);
-    console.log(`Current theme: ${theme}`);
-  }, [theme]);
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
