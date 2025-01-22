@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Explorer.module.scss';
+import ExplorerHeader from './ExplorerHeader';
+import MenuDots from '../Common/MenuDots';
 
 interface ExplorerProps {
   theme: 'light' | 'dark';
@@ -30,7 +32,14 @@ const Explorer: React.FC<ExplorerProps> = ({ theme }) => {
 
   return (
     <div className={`${styles.explorer} ${styles[theme]}`} style={{ width }}>
-      <h3>Explorer</h3>
+      <ExplorerHeader
+        title="탐색기"
+        additionalMenu={
+          <>
+            <MenuDots/>
+          </>
+        }
+      />
       <ul>
         <li>File1.js</li>
         <li>File2.js</li>

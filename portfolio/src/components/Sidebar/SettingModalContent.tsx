@@ -47,23 +47,6 @@ const SettingModalContent: React.FC = () => {
       </div>
 
       <div className={styles.section}>
-        <h3 className={styles.title}>테마 설정</h3>
-        <select
-          value={theme}
-          onChange={(e) => {
-            if (e.target.value === 'dark' && theme !== 'dark') {
-              toggleTheme();
-            } else if (e.target.value === 'light' && theme !== 'light') {
-              toggleTheme();
-            }
-          }}
-          className={styles.selectBox}
-        >
-          <option value="light">Light</option>
-          <option value="dark">Dark</option>
-        </select>
-      </div>
-      <div className={styles.section}>
         <h3 className={styles.title}>폰트 크기</h3>
         <select
           value={fontSize}

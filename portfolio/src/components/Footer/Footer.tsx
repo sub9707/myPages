@@ -19,7 +19,7 @@ interface FooterProps {
 
 const Footer: React.FC<FooterProps> = ({ theme }) => {
   return (
-    <div className={`${styles.footer} ${styles[theme]}`}>
+    <div className={`${styles.footer}`}>
       <div className={styles.menuLeft}>
         <span><img src={Remote} alt='blue'/></span>
         <FooterButton icon={Git} text={'main*'} />

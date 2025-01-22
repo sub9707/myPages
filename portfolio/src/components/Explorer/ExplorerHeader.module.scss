@@ -1,0 +1,23 @@
+.headerWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 2rem;
+    padding-inline: 0.5rem;
+
+    .headerLeft, .headerRight{
+        display: flex;
+        align-items: center;
+    }
+
+    .headerLeft{
+        font-size: 0.8rem;
+        color: #7d7c7c;
+    }
+
+    .headerRight{
+        justify-content: flex-end;
+        font-size: 0.5rem;
+    }
+}
