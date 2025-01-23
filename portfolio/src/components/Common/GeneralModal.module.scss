@@ -3,7 +3,9 @@ $primary-color: #007bff;
 $cancel-bg: #f0f0f0;
 
 $modal-bg-dark: #2e2e2e;
+$modal-bg-light: #e7e7e7;
 $modal-font-color-dark:#dedede;
+$modal-font-color-light:#2e2e2e;
 
 .overlay {
     position: fixed;
@@ -16,62 +18,80 @@ $modal-font-color-dark:#dedede;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-}
-
-.modal {
+    .light{
+        background: $modal-bg-light;
+        .header{
+            color:$modal-font-color-light;
+        }
+    }
+  }
+  
+  .modal {
     background: $modal-bg-dark;
     border-radius: 8px;
-    width: 400px;
-    max-width: 90%;
     padding: 16px;
     position: relative;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.header {
+    color: $modal-font-color-dark;
+  
+    &.small {
+      width: 300px;
+    }
+  
+    &.medium {
+      width: 400px; // 기본값
+    }
+  
+    &.large {
+      width: 600px;
+    }
+  }
+  
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 16px;
-    color: $modal-font-color-dark;
-    margin-bottom: 1.5rem;
-
+    padding-inline: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  
     .title {
-        margin: 0;
+      margin: 0;
+      font-size: 1.2rem;
     }
-
+  
     .close {
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
     }
-}
-
-.body {
+  }
+  
+  .body {
     margin-bottom: 16px;
-    color: $modal-font-color-dark;
-}
-
-.footer {
+  }
+  
+  .footer {
     display: flex;
     justify-content: flex-end;
     gap: 8px;
-
+  
     .button {
-        padding: 8px 16px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-
-        &.cancel {
-            background: $cancel-bg;
-            color: #333;
-        }
-
-        &.confirm {
-            background: $primary-color;
-            color: #fff;
-        }
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+  
+      &.cancel {
+        background: $cancel-bg;
+        color: #333;
+      }
+  
+      &.confirm {
+        background: $primary-color;
+        color: #fff;
+      }
     }
-}
+  }
+  

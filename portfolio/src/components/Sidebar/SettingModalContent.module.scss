@@ -1,8 +1,15 @@
+$modal-font-color-dark: #dedede;
+$modal-font-color-light: #2e2e2e;
 .container {
     display: flex;
     flex-direction: column;
     gap: 20px;
     padding-inline: 1rem;
+    &.light{
+        h3{
+            color:$modal-font-color-light
+        }
+    }
 }
 
 .section {

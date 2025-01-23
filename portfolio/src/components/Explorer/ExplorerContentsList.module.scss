@@ -1,0 +1,31 @@
+.listWrapper{
+    .listHeader{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        padding-right: 0.2rem;
+        text-decoration: none;
+        background-color: transparent;
+        border: none;
+        &:focus{
+            outline: #3675a2 1px solid;
+        }
+        .listState{
+            display: flex;
+            align-items: center;
+            .bracket{
+                width: 1.4rem;
+                height: 1.4rem;
+                path{
+                    stroke: rgb(126, 126, 126);
+                }
+            }
+            p{
+                color:rgb(161, 161, 161);
+                font-size: 0.9rem;
+            }
+        }
+    }
+}

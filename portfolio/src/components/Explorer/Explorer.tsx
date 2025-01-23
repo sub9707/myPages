@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import styles from './Explorer.module.scss';
 import ExplorerHeader from './ExplorerHeader';
 import MenuDots from '../Common/MenuDots';
+import ExplorerContentsList from './ExplorerContentsList';
 
 interface ExplorerProps {
   theme: 'light' | 'dark';
 }
 
 const Explorer: React.FC<ExplorerProps> = ({ theme }) => {
-  const [width, setWidth] = useState(200);
-  const minWidth = 150;
+  const [width, setWidth] = useState(250);
+  const minWidth = 250;
   const maxWidth = window.innerWidth - 300;
 
   const handleMouseDown = (e: React.MouseEvent) => {
@@ -40,11 +41,9 @@ const Explorer: React.FC<ExplorerProps> = ({ theme }) => {
           </>
         }
       />
-      <ul>
-        <li>File1.js</li>
-        <li>File2.js</li>
-        <li>File3.js</li>
-      </ul>
+      <ExplorerContentsList title={'portfolio'}>
+        1
+      </ExplorerContentsList>
       <div className={`${styles.resizer} ${styles[theme]}`} onMouseDown={handleMouseDown} />
     </div>
   );

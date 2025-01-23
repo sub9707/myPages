@@ -10,6 +10,7 @@ import Profile from '/src/assets/icons/profile.svg?react';
 import Setting from '/src/assets/icons/setting.svg?react';
 import GeneralModal from '../Common/GeneralModal';
 import SettingModalContent from './SettingModalContent';
+import ProfileModalContent from './ProfileModalContent';
 
 interface SidebarProps {
   theme: 'light' | 'dark';
@@ -17,7 +18,8 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ theme }) => {
   const [activeIcon, setActiveIcon] = useState<string | null>('pages');
-  const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태 추가
+  const [isSettingModalOpen, setIsSettingModalOpen] = useState(false);
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false); 
 
   const handleIconClick = (iconName: string) => {
     setActiveIcon(iconName);
@@ -63,6 +65,7 @@ const Sidebar: React.FC<SidebarProps> = ({ theme }) => {
         <ul>
           <li
             className={activeIcon === 'profile' ? styles.active : ''}
+            onClick={()=>setIsProfileModalOpen(true)}
           >
             <Profile
               className={`${styles.icon} ${activeIcon === 'profile' ? styles.iconActive : ''}`}
@@ -70,7 +73,7 @@ const Sidebar: React.FC<SidebarProps> = ({ theme }) => {
           </li>
           <li
             className={activeIcon === 'setting' ? styles.active : ''}
-            onClick={() => setIsModalOpen(true)} // Setting 버튼 클릭 시 모달 열기
+            onClick={() => setIsSettingModalOpen(true)}
           >
             <Setting
               className={`${styles.icon} ${activeIcon === 'setting' ? styles.iconActive : ''}`}
@@ -79,12 +82,23 @@ const Sidebar: React.FC<SidebarProps> = ({ theme }) => {
         </ul>
       </div>
 
+      {/* 프로필 모달 */}
+      <GeneralModal
+        isOpen={isProfileModalOpen}
+        onClose={()=>setIsProfileModalOpen(false)}
+        title='프로필'
+        showFooterButtons={{confirm:false, cancel:false}}
+        size={'large'}
+      >
+        <ProfileModalContent/>
+      </GeneralModal>
       {/* 설정창 모달 */}
       <GeneralModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        isOpen={isSettingModalOpen}
+        onClose={() => setIsSettingModalOpen(false)}
         title="설정"
         showFooterButtons={{ confirm: false, cancel: false }}
+        size={'medium'}
       >
         <SettingModalContent/>
       </GeneralModal>

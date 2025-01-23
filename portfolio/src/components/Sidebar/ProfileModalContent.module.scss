@@ -1,0 +1,72 @@
+$modal-font-color-dark: #dedede;
+$modal-font-color-light: #2e2e2e;
+
+.modalWrapper {
+    width: 100%;
+    height: auto;
+    padding-bottom: 2rem;
+
+    &.light {
+        .infoBlock {
+            .subHeader {
+                color: $modal-font-color-light;
+            }
+
+            .infoDetail {
+                color: $modal-font-color-light;
+                .linkAnchor {
+                    color: $modal-font-color-light; 
+                }
+            }
+        }
+    }
+
+    .imageWrapper {
+        width: 100%;
+        height: 12rem;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3rem;
+
+        .profileImage {
+            width: 12rem;
+            height: 12rem;
+            border-radius: 50%;
+        }
+    }
+
+    .infoBlock {
+        display: flex;
+        justify-content: space-between;
+        padding-inline: 10rem;
+        margin-top: 0.7rem;
+
+        .subHeader {
+            font-size: 1rem;
+            color: bisque;
+        }
+
+        .infoDetail {
+            display: flex;
+            align-items: center;
+
+            .linkAnchor {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                cursor: pointer;
+
+                &:hover {
+                    p {
+                        text-decoration: underline;
+                    }
+                }
+
+                img {
+                    width: 1.5rem;
+                    margin-top: 0.2rem;
+                }
+            }
+        }
+    }
+}

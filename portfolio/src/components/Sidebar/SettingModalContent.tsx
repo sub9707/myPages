@@ -23,7 +23,7 @@ const SettingModalContent: React.FC = () => {
   const { theme, toggleTheme } = themeContext;
 
   return (
-    <div className={styles.container}>
+    <div className={`${styles.container} ${styles[theme]}`}>
       {/* 다크/라이트 모드 */}
       <div className={styles.section}>
         <h3 className={styles.title}>다크/라이트 모드</h3>
