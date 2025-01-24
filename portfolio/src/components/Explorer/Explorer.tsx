@@ -33,13 +33,10 @@ const Explorer: React.FC<ExplorerProps> = ({ theme }) => {
     document.addEventListener('mouseup', handleMouseUp);
   };
 
-  const selectCurrentMenu = (index:number) =>{
-    if(currentMenu == -1){
-      setCurrentMenu(index);
-    }else if(currentMenu == index){
-      setCurrentMenu(-1);
-    }
-  }
+  const selectCurrentMenu = (index: number) => {
+    // 버튼을 눌렀을 때, 이미 선택된 경우 초기화
+    setCurrentMenu(prev => (prev === index ? -1 : index));
+  };
 
   return (
     <div className={`${styles.explorer} ${styles[theme]}`} style={{ width }}>
@@ -51,13 +48,13 @@ const Explorer: React.FC<ExplorerProps> = ({ theme }) => {
           </>
         }
       />
-      <ExplorerContentsList title={'portfolio'} >
+      <ExplorerContentsList title={'portfolio'} index={0} setClickIndex={()=>selectCurrentMenu(0)} currentIndex={currentMenu}>
         1
       </ExplorerContentsList>
-      <ExplorerContentsList title={'portfolio2'} >
+      <ExplorerContentsList title={'portfolio2'} index={1} setClickIndex={()=>selectCurrentMenu(1)} currentIndex={currentMenu}>
         1
       </ExplorerContentsList>
-      <ExplorerContentsList title={'portfolio3'} >
+      <ExplorerContentsList title={'portfolio3'}index={2} setClickIndex={()=>selectCurrentMenu(2)} currentIndex={currentMenu}>
         1
       </ExplorerContentsList>
       <div className={`${styles.resizer} ${styles[theme]}`} onMouseDown={handleMouseDown} />
