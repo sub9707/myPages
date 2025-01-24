@@ -9,7 +9,9 @@ interface ExplorerProps {
 }
 
 const Explorer: React.FC<ExplorerProps> = ({ theme }) => {
-  const [width, setWidth] = useState(250);
+  const [width, setWidth] = useState<number>(250);
+  const [currentMenu, setCurrentMenu]= useState<number>(-1);
+
   const minWidth = 250;
   const maxWidth = window.innerWidth - 300;
 
@@ -31,6 +33,14 @@ const Explorer: React.FC<ExplorerProps> = ({ theme }) => {
     document.addEventListener('mouseup', handleMouseUp);
   };
 
+  const selectCurrentMenu = (index:number) =>{
+    if(currentMenu == -1){
+      setCurrentMenu(index);
+    }else if(currentMenu == index){
+      setCurrentMenu(-1);
+    }
+  }
+
   return (
     <div className={`${styles.explorer} ${styles[theme]}`} style={{ width }}>
       <ExplorerHeader
@@ -41,7 +51,13 @@ const Explorer: React.FC<ExplorerProps> = ({ theme }) => {
           </>
         }
       />
-      <ExplorerContentsList title={'portfolio'}>
+      <ExplorerContentsList title={'portfolio'} >
+        1
+      </ExplorerContentsList>
+      <ExplorerContentsList title={'portfolio2'} >
+        1
+      </ExplorerContentsList>
+      <ExplorerContentsList title={'portfolio3'} >
         1
       </ExplorerContentsList>
       <div className={`${styles.resizer} ${styles[theme]}`} onMouseDown={handleMouseDown} />

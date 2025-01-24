@@ -17,7 +17,7 @@ const ExplorerContentsList:React.FC<ExplorerContentListProps> = ({title, childre
                 <p>{title}</p>
             </div>
             <div className={styles.listMenus}>
-1
+              {children}
             </div>
         </button>
     </div>
