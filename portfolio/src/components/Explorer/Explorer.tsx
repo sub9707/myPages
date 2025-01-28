@@ -5,6 +5,9 @@ import MenuDots from '../Common/MenuDots';
 import ExplorerContentsList from './ExplorerContentsList';
 import ContentList from './ContentList';
 
+import ProfileFolder from '/src/assets/icons/folder-admin.svg?react';
+import ProfileOpenFolder from '/src/assets/icons/folder-admin-open.svg?react';
+
 interface ExplorerProps {
     theme: 'light' | 'dark';
 }
@@ -51,33 +54,33 @@ const Explorer: React.FC<ExplorerProps> = ({ theme }) => {
             <div className={styles.contentsContainer}>
                 <ExplorerContentsList
                     key={0}
-                    title={`portfolio${0 + 1}`}
+                    title={`About Me`}
                     index={0}
                     setClickIndex={() => selectCurrentMenu(0)}
                     currentIndex={currentMenu}
                     isExpanded={currentMenu === 0}
                 >
-                    <ContentList />
+                    <ContentList title={'About Me'} folderIconClose={ProfileFolder} folderIconOpen={ProfileOpenFolder}/>
                 </ExplorerContentsList>
                 <ExplorerContentsList
                     key={1}
-                    title={`portfolio${0 + 1}`}
+                    title={`Portfolio`}
                     index={1}
                     setClickIndex={() => selectCurrentMenu(1)}
                     currentIndex={currentMenu}
                     isExpanded={currentMenu === 1}
                 >
-                    <ContentList />
+                    <ContentList title={'Portfolio'} folderIconClose={ProfileFolder} folderIconOpen={ProfileOpenFolder}/>
                 </ExplorerContentsList>
                 <ExplorerContentsList
                     key={2}
-                    title={`portfolio${0 + 1}`}
+                    title={`Portfolio`}
                     index={2}
                     setClickIndex={() => selectCurrentMenu(2)}
                     currentIndex={currentMenu}
                     isExpanded={currentMenu === 2}
                 >
-                    <ContentList />
+                    <ContentList title={'About Me'} folderIconClose={ProfileFolder} folderIconOpen={ProfileOpenFolder}/>
                 </ExplorerContentsList>
             </div>
             <div className={`${styles.resizer} ${styles[theme]}`} onMouseDown={handleMouseDown} />

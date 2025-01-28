@@ -4,11 +4,17 @@ import styles from './ContentList.module.scss';
 import Bracket_Right from '/src/assets/icons/bracket_right.svg?react';
 import Bracket_Under from '/src/assets/icons/bracket_under.svg?react';
 
-const ContentList: React.FC = () => {
+interface ContentListProps {
+    title: string;
+    folderIconOpen: React.FC<React.SVGProps<SVGSVGElement>>;
+    folderIconClose: React.FC<React.SVGProps<SVGSVGElement>>;
+}
+
+const ContentList: React.FC<ContentListProps> = ({ title, folderIconOpen: FolderOpenIcon, folderIconClose: FolderCloseIcon }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleOpen = () => {
-        setIsOpen(prevState => !prevState);
+        setIsOpen((prevState) => !prevState);
     };
 
     return (
@@ -16,7 +22,10 @@ const ContentList: React.FC = () => {
             <li>
                 <div className={styles.folder} onClick={toggleOpen}>
                     {isOpen ? <Bracket_Under /> : <Bracket_Right />}
-                    <span>{isOpen ? 'Open' : 'Close'}</span>
+                    <span>
+                        {isOpen ? <FolderOpenIcon /> : <FolderCloseIcon />}
+                        <p>{title}</p>
+                    </span>
                 </div>
                 {isOpen && (
                     <ul className={styles.subList}>
