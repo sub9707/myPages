@@ -1,4 +1,15 @@
 .listWrapper{
+    display: flex;
+    flex-direction: column;
+    transition: flex-grow 0.2s ease;
+    padding: 0.1rem;
+    &.expanded {
+        flex-grow: 1;
+      }
+      
+      &.collapsed {
+        flex-grow: 0; /* 최소 높이로 설정 */
+      }
     .listHeader{
         width: 100%;
         display: flex;
@@ -29,3 +40,4 @@
         }
     }
 }
+

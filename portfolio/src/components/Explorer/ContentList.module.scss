@@ -1,0 +1,22 @@
+.contentList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    user-select: none;
+}
+
+.folder {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.folder span {
+    margin-left: 8px;
+}
+
+.subList {
+    margin-left: 16px;
+    list-style: none;
+    padding: 0;
+}

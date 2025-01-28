@@ -6,6 +6,14 @@
   display: flex;
   flex-direction: column;
 
+  .contentsContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* 부모 컨테이너의 높이 전부 사용 */
+    overflow: hidden;
+  }
+  
+
   &.light {
     background-color: #e0e0e0;
     color: #000;
