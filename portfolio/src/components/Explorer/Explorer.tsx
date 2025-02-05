@@ -15,6 +15,7 @@ interface ExplorerProps {
 const Explorer: React.FC<ExplorerProps> = ({ theme }) => {
     const [width, setWidth] = useState<number>(250);
     const [currentMenu, setCurrentMenu] = useState<number>(-1);
+    const [selectedItem, setSelectedItem] = useState<string | null>(null);
 
     const minWidth = 250;
     const maxWidth = window.innerWidth - 300;
@@ -45,42 +46,44 @@ const Explorer: React.FC<ExplorerProps> = ({ theme }) => {
         <div className={`${styles.explorer} ${styles[theme]}`} style={{ width }}>
             <ExplorerHeader
                 title="탐색기"
-                additionalMenu={
-                    <>
-                        <MenuDots />
-                    </>
-                }
+                additionalMenu={<MenuDots />}
             />
             <div className={styles.contentsContainer}>
                 <ExplorerContentsList
                     key={0}
-                    title={`About Me`}
+                    title="About Me"
                     index={0}
                     setClickIndex={() => selectCurrentMenu(0)}
                     currentIndex={currentMenu}
                     isExpanded={currentMenu === 0}
+                    selectedItem={selectedItem}
+                    setSelectedItem={setSelectedItem}
                 >
-                    <ContentList title={'About Me'} folderIconClose={ProfileFolder} folderIconOpen={ProfileOpenFolder}/>
+                    <ContentList 
+                        title="About Me" 
+                        folderIconClose={ProfileFolder} 
+                        folderIconOpen={ProfileOpenFolder} 
+                        selectedItem={selectedItem}
+                        setSelectedItem={setSelectedItem}
+                    />
                 </ExplorerContentsList>
                 <ExplorerContentsList
                     key={1}
-                    title={`Portfolio`}
+                    title="Portfolio"
                     index={1}
                     setClickIndex={() => selectCurrentMenu(1)}
                     currentIndex={currentMenu}
                     isExpanded={currentMenu === 1}
+                    selectedItem={selectedItem}
+                    setSelectedItem={setSelectedItem}
                 >
-                    <ContentList title={'Portfolio'} folderIconClose={ProfileFolder} folderIconOpen={ProfileOpenFolder}/>
-                </ExplorerContentsList>
-                <ExplorerContentsList
-                    key={2}
-                    title={`Portfolio`}
-                    index={2}
-                    setClickIndex={() => selectCurrentMenu(2)}
-                    currentIndex={currentMenu}
-                    isExpanded={currentMenu === 2}
-                >
-                    <ContentList title={'About Me'} folderIconClose={ProfileFolder} folderIconOpen={ProfileOpenFolder}/>
+                    <ContentList 
+                        title="Portfolio" 
+                        folderIconClose={ProfileFolder} 
+                        folderIconOpen={ProfileOpenFolder} 
+                        selectedItem={selectedItem}
+                        setSelectedItem={setSelectedItem}
+                    />
                 </ExplorerContentsList>
             </div>
             <div className={`${styles.resizer} ${styles[theme]}`} onMouseDown={handleMouseDown} />

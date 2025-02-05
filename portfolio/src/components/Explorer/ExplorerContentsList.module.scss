@@ -11,12 +11,12 @@
         flex-grow: 0; /* 최소 높이로 설정 */
       }
     .listHeader{
+        all: unset;
         width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
         cursor: pointer;
-        padding-right: 0.2rem;
         text-decoration: none;
         background-color: transparent;
         border: none;
@@ -39,5 +39,9 @@
             }
         }
     }
+}
+
+.listHeader.active {
+    background-color: transparent; // 활성화 스타일 제거
 }
 

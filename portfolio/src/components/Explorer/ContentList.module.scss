@@ -1,22 +1,89 @@
 .contentList {
     list-style: none;
-    padding: 0;
     margin: 0;
     user-select: none;
+    // padding-inline: 1rem !important;
 }
 
 .folder {
     display: flex;
     align-items: center;
     cursor: pointer;
-}
 
-.folder span {
-    margin-left: 8px;
+    .bracket {
+        width: 1.4rem;
+        height: 1.4rem;
+
+        path {
+            stroke: rgb(126, 126, 126);
+        }
+    }
+
+    .folderHeader {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.5rem;
+        .folderIcon{
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+
+        p {
+            font-size: 0.8rem;
+            color: rgb(172, 172, 172);
+            margin-top: 0.1rem;
+        }
+    }
 }
 
 .subList {
-    margin-left: 16px;
     list-style: none;
-    padding: 0;
+    color: #b2b0c0;
+    font-size: 0.9rem;
+    margin: 0;
+    .plainType,
+    .mdType,
+    .tsType {
+        position: relative;
+        padding-left: 1.5rem;
+        margin: 0;
+        padding-block: 0.1rem;
+        cursor: pointer;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1.2rem;
+            height: 1.2rem;
+            background: no-repeat center / contain;
+        }
+        &:hover{
+            background-color: #3a3d41;
+        }
+
+    }
+
+    .plainType::before {
+        background-image: url('/src/assets/icons/file.svg');
+    }
+
+    .mdType::before {
+        background-image: url('/src/assets/icons/file.svg');
+    }
+
+    .tsType::before {
+        background-image: url('/src/assets/icons/file.svg');
+    }
+}
+
+.folder.active {
+    background-color: #3a3d41;
+}
+
+.subList li.active {
+    background-color: #3a3d41;
 }
