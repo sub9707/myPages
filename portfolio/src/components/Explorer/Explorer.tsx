@@ -66,6 +66,13 @@ const Explorer: React.FC<ExplorerProps> = ({ theme }) => {
                         selectedItem={selectedItem}
                         setSelectedItem={setSelectedItem}
                     />
+                    <ContentList 
+                        title="Projects" 
+                        folderIconClose={ProfileFolder} 
+                        folderIconOpen={ProfileOpenFolder} 
+                        selectedItem={selectedItem}
+                        setSelectedItem={setSelectedItem}
+                    />
                 </ExplorerContentsList>
                 <ExplorerContentsList
                     key={1}

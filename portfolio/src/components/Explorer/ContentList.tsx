@@ -23,8 +23,7 @@ const ContentList: React.FC<ContentListProps> = ({ title, folderIconOpen: Folder
     };
 
     return (
-        <ul className={styles.contentList}>
-            <li>
+        <div className={styles.contentList}>
                 <div className={`${styles.folder} ${selectedItem === title ? styles.active : ''}`} onClick={toggleOpen}>
                     <div className={styles.buttonWrapper}>
                         {isOpen ? <Bracket_Under className={styles.bracket} /> : <Bracket_Right className={styles.bracket} />}
@@ -50,8 +49,7 @@ const ContentList: React.FC<ContentListProps> = ({ title, folderIconOpen: Folder
                         </li>
                     </ul>
                 )}
-            </li>
-        </ul>
+        </div>
     );
 };
 
