@@ -6,35 +6,39 @@
 }
 
 .folder {
-    display: flex;
-    align-items: center;
     cursor: pointer;
 
-    .bracket {
-        width: 1.4rem;
-        height: 1.4rem;
-
-        path {
-            stroke: rgb(126, 126, 126);
-        }
-    }
-
-    .folderHeader {
+    .buttonWrapper{
         display: flex;
         align-items: center;
-        justify-content: flex-start;
-        gap: 0.5rem;
-        .folderIcon{
-            width: 1.2rem;
-            height: 1.2rem;
+        padding-left: 1rem;
+        .bracket {
+            width: 1.4rem;
+            height: 1.4rem;
+    
+            path {
+                stroke: rgb(126, 126, 126);
+            }
         }
-
-        p {
-            font-size: 0.8rem;
-            color: rgb(172, 172, 172);
-            margin-top: 0.1rem;
+    
+        .folderHeader {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.5rem;
+            .folderIcon{
+                width: 1.2rem;
+                height: 1.2rem;
+            }
+    
+            p {
+                font-size: 0.8rem;
+                color: rgb(172, 172, 172);
+                margin-top: 0.1rem;
+            }
         }
     }
+
 }
 
 .subList {
@@ -42,11 +46,28 @@
     color: #b2b0c0;
     font-size: 0.9rem;
     margin: 0;
+
+    .fileWrapper{
+        padding-left: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+        .fileIcon{
+            width: 1rem;
+            height: 1rem;
+        }
+        .plainIcon{
+            background-image: url('/src/assets/icons/file.svg');
+        }
+    }
+
     .plainType,
     .mdType,
     .tsType {
         position: relative;
-        padding-left: 1.5rem;
+        padding-left: 2.1rem;
         margin: 0;
         padding-block: 0.1rem;
         cursor: pointer;
@@ -65,18 +86,6 @@
             background-color: #3a3d41;
         }
 
-    }
-
-    .plainType::before {
-        background-image: url('/src/assets/icons/file.svg');
-    }
-
-    .mdType::before {
-        background-image: url('/src/assets/icons/file.svg');
-    }
-
-    .tsType::before {
-        background-image: url('/src/assets/icons/file.svg');
     }
 }
 

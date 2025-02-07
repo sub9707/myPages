@@ -19,11 +19,7 @@ const ExplorerContentsList: React.FC<ExplorerContentListProps> = ({
     title,
     children,
     setClickIndex,
-    currentIndex,
-    index,
     isExpanded,
-    selectedItem,
-    setSelectedItem
 }) => {
     return (
         <div className={`${styles.listWrapper} ${isExpanded ? styles.expanded : styles.collapsed}`}>

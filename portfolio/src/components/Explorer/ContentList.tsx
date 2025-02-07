@@ -24,17 +24,34 @@ const ContentList: React.FC<ContentListProps> = ({ title, folderIconOpen: Folder
         <ul className={styles.contentList}>
             <li>
                 <div className={`${styles.folder} ${selectedItem === title ? styles.active : ''}`} onClick={toggleOpen}>
-                    {isOpen ? <Bracket_Under className={styles.bracket} /> : <Bracket_Right className={styles.bracket} />}
-                    <span className={styles.folderHeader}>
-                        {isOpen ? <FolderOpenIcon className={styles.folderIcon} /> : <FolderCloseIcon className={styles.folderIcon}/>}
-                        <p>{title}</p>
-                    </span>
+                    <div className={styles.buttonWrapper}>
+                        {isOpen ? <Bracket_Under className={styles.bracket} /> : <Bracket_Right className={styles.bracket} />}
+                        <span className={styles.folderHeader}>
+                            {isOpen ? <FolderOpenIcon className={styles.folderIcon} /> : <FolderCloseIcon className={styles.folderIcon} />}
+                            <p>{title}</p>
+                        </span>
+                    </div>
                 </div>
                 {isOpen && (
                     <ul className={styles.subList}>
-                        <li className={`${styles.plainType} ${selectedItem === "Item 1" ? styles.active : ''}`} onClick={() => setSelectedItem("Item 1")}><p>Item 1</p></li>
-                        <li className={`${styles.mdType} ${selectedItem === "Item 2" ? styles.active : ''}`} onClick={() => setSelectedItem("Item 2")}><p>Item 2</p></li>
-                        <li className={`${styles.tsType} ${selectedItem === "Item 3" ? styles.active : ''}`} onClick={() => setSelectedItem("Item 3")}><p>Item 3</p></li>
+                        <li className={`${styles.plainType} ${selectedItem === "Item 1" ? styles.active : ''}`} onClick={() => setSelectedItem("Item 1")}>
+                            <div className={styles.fileWrapper}>
+                                <img className={`${styles.fileIcon} ${styles.plainIcon}`} alt='icon' />
+                                <p>Item 1</p>
+                            </div>
+                        </li>
+                        <li className={`${styles.mdType} ${selectedItem === "Item 2" ? styles.active : ''}`} onClick={() => setSelectedItem("Item 2")}>
+                            <div className={styles.fileWrapper}>
+                                <img className={`${styles.fileIcon} ${styles.plainIcon}`} alt='icon' />
+                                <p>Item 1</p>
+                            </div>
+                        </li>
+                        <li className={`${styles.tsType} ${selectedItem === "Item 3" ? styles.active : ''}`} onClick={() => setSelectedItem("Item 3")}>
+                            <div className={styles.fileWrapper}>
+                                <img className={`${styles.fileIcon} ${styles.plainIcon}`} alt='icon' />
+                                <p>Item 1</p>
+                            </div>
+                        </li>
                     </ul>
                 )}
             </li>
