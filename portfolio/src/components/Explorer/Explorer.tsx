@@ -51,7 +51,7 @@ const Explorer: React.FC<ExplorerProps> = ({ theme }) => {
             <div className={styles.contentsContainer}>
                 <ExplorerContentsList
                     key={0}
-                    title="About Me"
+                    title="Portfolio"
                     index={0}
                     setClickIndex={() => selectCurrentMenu(0)}
                     currentIndex={currentMenu}

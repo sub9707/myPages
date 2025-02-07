@@ -1,0 +1,16 @@
+.fileContent {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 1rem;
+
+    .fileIcon {
+        width: 1.3rem;
+        height: 1.3rem;
+    }
+
+    p {
+        font-size: 0.9rem;
+        color: #b2b0c0;
+    }
+}

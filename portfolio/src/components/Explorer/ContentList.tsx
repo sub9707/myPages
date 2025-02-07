@@ -4,6 +4,8 @@ import styles from './ContentList.module.scss';
 import Bracket_Right from '/src/assets/icons/bracket_right.svg?react';
 import Bracket_Under from '/src/assets/icons/bracket_under.svg?react';
 
+import FileContent from './FileContent';
+
 interface ContentListProps {
     title: string;
     folderIconOpen: React.FC<React.SVGProps<SVGSVGElement>>;
@@ -35,22 +37,16 @@ const ContentList: React.FC<ContentListProps> = ({ title, folderIconOpen: Folder
                 {isOpen && (
                     <ul className={styles.subList}>
                         <li className={`${styles.plainType} ${selectedItem === "Item 1" ? styles.active : ''}`} onClick={() => setSelectedItem("Item 1")}>
-                            <div className={styles.fileWrapper}>
-                                <img className={`${styles.fileIcon} ${styles.plainIcon}`} alt='icon' />
-                                <p>Item 1</p>
-                            </div>
+                            <FileContent fileType="file1" title="자기소개서" />
                         </li>
                         <li className={`${styles.mdType} ${selectedItem === "Item 2" ? styles.active : ''}`} onClick={() => setSelectedItem("Item 2")}>
-                            <div className={styles.fileWrapper}>
-                                <img className={`${styles.fileIcon} ${styles.plainIcon}`} alt='icon' />
-                                <p>Item 1</p>
-                            </div>
+                            <FileContent fileType="file2" title="기술스택" />
                         </li>
                         <li className={`${styles.tsType} ${selectedItem === "Item 3" ? styles.active : ''}`} onClick={() => setSelectedItem("Item 3")}>
-                            <div className={styles.fileWrapper}>
-                                <img className={`${styles.fileIcon} ${styles.plainIcon}`} alt='icon' />
-                                <p>Item 1</p>
-                            </div>
+                            <FileContent fileType="file3" title="경력 및 이력" />
+                        </li>
+                        <li className={`${styles.tsType} ${selectedItem === "Item 4" ? styles.active : ''}`} onClick={() => setSelectedItem("Item 4")}>
+                            <FileContent fileType="file3" title="학습 기록" />
                         </li>
                     </ul>
                 )}
