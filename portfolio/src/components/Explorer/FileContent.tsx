@@ -6,7 +6,7 @@ import file2Icon from "/src/assets/icons/file.svg";
 import file3Icon from "/src/assets/icons/file.svg";
 
 interface FileContentProps {
-    fileType: "file1" | "file2" | "file3";
+    fileType: string;
     title: string;
 }
 

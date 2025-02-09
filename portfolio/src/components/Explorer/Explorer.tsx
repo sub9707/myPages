@@ -4,7 +4,7 @@ import ExplorerHeader from './ExplorerHeader';
 import MenuDots from '../Common/MenuDots';
 import ExplorerContentsList from './ExplorerContentsList';
 import ContentList from './ContentList';
-
+import { fileList } from './ContentListFiles';
 import ProfileFolder from '/src/assets/icons/folder-admin.svg?react';
 import ProfileOpenFolder from '/src/assets/icons/folder-admin-open.svg?react';
 
@@ -19,6 +19,9 @@ const Explorer: React.FC<ExplorerProps> = ({ theme }) => {
 
     const minWidth = 250;
     const maxWidth = window.innerWidth - 300;
+
+    // 폴더 구조 생성
+    const folders = Array.from(new Set(fileList.map(file => file.folder)));
 
     const handleMouseDown = (e: React.MouseEvent) => {
         const startX = e.clientX;
@@ -49,31 +52,7 @@ const Explorer: React.FC<ExplorerProps> = ({ theme }) => {
                 additionalMenu={<MenuDots />}
             />
             <div className={styles.contentsContainer}>
-                <ExplorerContentsList
-                    key={0}
-                    title="Portfolio"
-                    index={0}
-                    setClickIndex={() => selectCurrentMenu(0)}
-                    currentIndex={currentMenu}
-                    isExpanded={currentMenu === 0}
-                    selectedItem={selectedItem}
-                    setSelectedItem={setSelectedItem}
-                >
-                    <ContentList 
-                        title="About Me" 
-                        folderIconClose={ProfileFolder} 
-                        folderIconOpen={ProfileOpenFolder} 
-                        selectedItem={selectedItem}
-                        setSelectedItem={setSelectedItem}
-                    />
-                    <ContentList 
-                        title="Projects" 
-                        folderIconClose={ProfileFolder} 
-                        folderIconOpen={ProfileOpenFolder} 
-                        selectedItem={selectedItem}
-                        setSelectedItem={setSelectedItem}
-                    />
-                </ExplorerContentsList>
+
                 <ExplorerContentsList
                     key={1}
                     title="Portfolio"
@@ -84,13 +63,29 @@ const Explorer: React.FC<ExplorerProps> = ({ theme }) => {
                     selectedItem={selectedItem}
                     setSelectedItem={setSelectedItem}
                 >
-                    <ContentList 
-                        title="Portfolio" 
-                        folderIconClose={ProfileFolder} 
-                        folderIconOpen={ProfileOpenFolder} 
-                        selectedItem={selectedItem}
-                        setSelectedItem={setSelectedItem}
-                    />
+                    {folders.map((folder, index) => (
+                        <ContentList
+                            key={index}
+                            title={folder}
+                            folderIconClose={ProfileFolder}
+                            folderIconOpen={ProfileOpenFolder}
+                            selectedItem={selectedItem}
+                            setSelectedItem={setSelectedItem}
+                            files={fileList.filter(file => file.folder === folder)}
+                        />
+                    ))}
+                </ExplorerContentsList>
+                <ExplorerContentsList
+                    key={0}
+                    title="개요"
+                    index={0}
+                    setClickIndex={() => selectCurrentMenu(0)}
+                    currentIndex={currentMenu}
+                    isExpanded={currentMenu === 0}
+                    selectedItem={selectedItem}
+                    setSelectedItem={setSelectedItem}
+                >
+                    <p>test</p>
                 </ExplorerContentsList>
             </div>
             <div className={`${styles.resizer} ${styles[theme]}`} onMouseDown={handleMouseDown} />
