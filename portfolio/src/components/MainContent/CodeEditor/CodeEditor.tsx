@@ -3,7 +3,6 @@ import Editor from "@monaco-editor/react";
 import fileContent from "/src/components/MainContent/Files/test.md?raw"; // 직접 불러오기
 import { ThemeContext } from "../../../context/ThemeContext";
 
-
 const CodeEditor: React.FC = () => {
   const [code] = useState<string>(fileContent);
 

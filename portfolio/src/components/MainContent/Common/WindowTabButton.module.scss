@@ -8,6 +8,7 @@
     gap:0.5rem;
     cursor: pointer;
     border-right: solid rgb(63, 63, 63) 1px;
+    
     .tabLogo{
         width: 1.1rem;
         height: 1.1rem;
@@ -17,16 +18,23 @@
         color:gray;
     }
     .tabClose{
-        width: 1.1rem;
-        height: 1.1rem;
+        width: 1.8rem;
+        height: 1.8rem;
         display: flex;
         justify-content: center;
         align-items: center;
         cursor: pointer;
         background-color: transparent;
         border: none;
+        border-radius: 4px;
         &:hover{
-            background-color: rgb(66, 66, 66);
+            background-color: rgb(46, 46, 46);
+        }
+
+        .closeIcon{
+            path{
+                fill:rgb(119, 119, 119);
+            }
         }
     }
 }
