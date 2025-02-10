@@ -1,3 +1,11 @@
 .tabsArea{
     height: 2.2rem;
+    background-color: rgb(37, 37, 37);
+    display: flex;
+    justify-content: space-between;
+    .tabsContainer{
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
 }
