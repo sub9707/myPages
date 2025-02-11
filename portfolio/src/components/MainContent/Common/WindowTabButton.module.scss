@@ -18,8 +18,8 @@
         color:gray;
     }
     .tabClose{
-        width: 1.8rem;
-        height: 1.8rem;
+        width: 1.2rem;
+        height: 1.2rem;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -32,6 +32,7 @@
         }
 
         .closeIcon{
+            scale: 2;
             path{
                 fill:rgb(119, 119, 119);
             }

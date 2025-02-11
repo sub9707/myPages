@@ -1,6 +1,8 @@
-import React from 'react'
-import styles from './WindowTabs.module.scss'
-import WindowTabButton from './WindowTabButton'
+import React from 'react';
+import styles from './WindowTabs.module.scss';
+import WindowTabButton from './WindowTabButton';
+
+import Dots from '/src/assets/icons/dots.svg?react';
 
 const WindowTabs:React.FC = () => {
   return (
@@ -10,7 +12,9 @@ const WindowTabs:React.FC = () => {
             <WindowTabButton title={'longTitleTest.tsx'}/>
         </div>
         <div className={styles.controlMenu}>
-            2
+            <button className={styles.controlButton}>
+              <Dots className={styles.dots} />
+            </button>
         </div>
     </div>
   )
