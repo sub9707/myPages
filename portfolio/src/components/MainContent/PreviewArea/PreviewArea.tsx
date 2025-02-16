@@ -6,7 +6,7 @@ import PreviewContent from './PreviewContent'
 const PreviewArea:React.FC = () => {
   return (
     <div className={styles.previewWindow}>
-      <WindowHeader/>
+      <WindowHeader isPreview={false}/>
       <PreviewContent/>
     </div>
   )

@@ -6,11 +6,12 @@ import Close from '/src/assets/icons/close.svg?react';
 
 interface WindowTabButtonProps {
     title:string;
+    selected: boolean;
 }
 
-const WindowTabButton:React.FC<WindowTabButtonProps> = ({title}) => {
+const WindowTabButton:React.FC<WindowTabButtonProps> = ({title, selected}) => {
   return (
-    <div className={styles.buttonWrapper}>
+    <div className={`${styles.buttonWrapper} ${selected ? styles.active : ''}`}>
         <img className={styles.tabLogo} src={SampleLogo} alt='fileLogo'/>
         <p className={styles.tabTitle}>{title}</p>
         <button className={styles.tabClose}>

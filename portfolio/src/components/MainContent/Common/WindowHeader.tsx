@@ -3,11 +3,17 @@ import styles from './WindowHeader.module.scss'
 import WindowTabs from './WindowTabs'
 import FilePath from './FilePath'
 
-const WindowHeader:React.FC = () => {
+interface WindowHeaderProps {
+  isPreview : boolean
+}
+
+const WindowHeader:React.FC<WindowHeaderProps> = ({isPreview}) => {
   return (
     <div className={styles.headerArea}>
       <WindowTabs/>
-      <FilePath/>
+      {
+        isPreview && <FilePath/>
+      }
     </div>
   )
 }

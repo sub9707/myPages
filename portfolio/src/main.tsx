@@ -4,11 +4,17 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
+import { EditorProvider } from './context/EditorContext';
+import { PreviewProvider } from './context/PreviewContext';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-      <App />
+      <EditorProvider>
+        <PreviewProvider>
+          <App />
+        </PreviewProvider>
+      </EditorProvider>
     </BrowserRouter>
   </StrictMode>
 );

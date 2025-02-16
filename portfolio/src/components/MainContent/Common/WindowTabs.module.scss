@@ -2,13 +2,13 @@
     height: 2rem;
     background-color: rgb(37, 37, 37);
     display: flex;
-    display: flex;
     justify-content: space-between;
     align-items: center;
     .tabsContainer{
         display: flex;
         align-items: center;
         justify-content: flex-start;
+        height: 100%;
     }
     .controlMenu{
         display: flex;

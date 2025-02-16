@@ -14,7 +14,7 @@
         height: 1.1rem;
     }
     .tabTitle{
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         color:gray;
     }
     .tabClose{
@@ -37,5 +37,12 @@
                 fill:rgb(119, 119, 119);
             }
         }
+    }
+}
+
+.active{
+    background-color: rgb(63, 62, 62);
+    .tabTitle{
+        color:rgb(209, 209, 209);
     }
 }

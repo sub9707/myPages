@@ -8,8 +8,8 @@ const WindowTabs:React.FC = () => {
   return (
     <div className={styles.tabsArea}>
         <div className={styles.tabsContainer}>
-            <WindowTabButton title={'test.tsx'}/>
-            <WindowTabButton title={'longTitleTest.tsx'}/>
+            <WindowTabButton title={'test.tsx'} selected/>
+            <WindowTabButton title={'longTitleTest.tsx'} selected={false}/>
         </div>
         <div className={styles.controlMenu}>
             <button className={styles.controlButton}>

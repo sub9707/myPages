@@ -7,7 +7,7 @@ const CodeEditorArea: React.FC = () => {
 
     return (
         <div className={styles.editorWindow}>
-            <WindowHeader />
+            <WindowHeader isPreview={true}/>
             <div className={styles.editorWrapper}>
                 <CodeEditor />
             </div>
