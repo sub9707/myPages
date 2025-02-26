@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import fileContent from "/src/components/MainContent/Files/test.md?raw";
 import { ThemeContext } from "../../../context/ThemeContext";
-import MDEditor from "@uiw/react-md-editor";
 import styles from './CodeEditor.module.scss'
+import MarkdownEditor from "@uiw/react-markdown-editor";
+import './editorTest.scss'
 
 const CodeEditor: React.FC = () => {
   const [code, setCode] = useState<string>(fileContent);
@@ -16,13 +17,18 @@ const CodeEditor: React.FC = () => {
   const { theme } = context;
 
   return (
-      <MDEditor
-        value={code}
-        onChange={(value) => setCode(value ?? "")} 
-        commands={[]}
-        className={styles.editor}
-        height={'100%'}
-      />
+    <MarkdownEditor
+      value={code}
+      onChange={(value, viewUpdate) => { }}
+      className={styles.editor}
+      visible={true}
+      enableScroll={true}
+      enablePreview={true}
+      previewWidth="50%"
+      showToolbar={true}
+      height="88vh"
+    />
+
   );
 };
 

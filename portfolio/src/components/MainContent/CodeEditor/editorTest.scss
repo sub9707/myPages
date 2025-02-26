@@ -1,0 +1,23 @@
+.md-editor {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* 전체 화면을 차지하도록 설정 */
+  }
+  
+  .md-editor-content {
+    flex-grow: 1;
+    overflow: hidden;
+    height: 100vh;
+  }
+  
+  .md-editor-content-editor {
+    margin-bottom: 0; /* 불필요한 마진 제거 */
+    height: auto; /* 자동 조정 */
+  }
+  .md-editor-preview{
+    height: 87vh;
+  }
+
+  .md-editor-toolbar-warp{
+    display: none;
+  }
