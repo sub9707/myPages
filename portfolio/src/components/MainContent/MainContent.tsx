@@ -11,7 +11,7 @@ const MainContent: React.FC<MainContentProps> = ({ theme }) => {
   return (
     <div className={`${styles.mainContent} ${styles[theme]}`}>
       <CodeEditorArea />
-      <PreviewArea/>
+      {/* <PreviewArea/> */}
     </div>
   );
 };
