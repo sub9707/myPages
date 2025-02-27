@@ -3,6 +3,7 @@ import styles from './ContentList.module.scss';
 import Bracket_Right from '/src/assets/icons/bracket_right.svg?react';
 import Bracket_Under from '/src/assets/icons/bracket_under.svg?react';
 import FileContent from './FileContent';
+import { useFileContext } from '../../context/FileContext';
 
 interface FileItem {
     folder: string;
@@ -28,11 +29,18 @@ const ContentList: React.FC<ContentListProps> = ({
     files
 }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const { addEditorFile, addPreviewFile } = useFileContext();
 
     const toggleOpen = () => {
         setIsOpen((prevState) => !prevState);
         setSelectedItem(title);
     };
+
+    const handleClickItem = (filename:string) =>{
+        setSelectedItem(filename);
+        addEditorFile(filename);
+        addPreviewFile(filename);
+    }
 
     return (
         <div className={styles.contentList}>
@@ -51,7 +59,7 @@ const ContentList: React.FC<ContentListProps> = ({
                         <li
                             key={index}
                             className={`${styles[file.filetype]} ${selectedItem === file.filename ? styles.active : ''}`}
-                            onClick={() => setSelectedItem(file.filename)}
+                            onClick={()=>handleClickItem(file.filename) }
                         >
                             <FileContent fileType={file.filetype} title={file.filename} />
                         </li>

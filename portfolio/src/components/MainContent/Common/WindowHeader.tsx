@@ -4,16 +4,14 @@ import WindowTabs from './WindowTabs'
 import FilePath from './FilePath'
 
 interface WindowHeaderProps {
-  isPreview : boolean
+  isPreview: boolean
 }
 
-const WindowHeader:React.FC<WindowHeaderProps> = ({isPreview}) => {
+const WindowHeader: React.FC<WindowHeaderProps> = ({ isPreview }) => {
   return (
     <div className={styles.headerArea}>
-      <WindowTabs/>
-      {
-        isPreview && <FilePath/>
-      }
+      <WindowTabs isPreview={isPreview} />
+      <FilePath />
     </div>
   )
 }
