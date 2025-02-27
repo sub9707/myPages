@@ -1,36 +1,46 @@
-.tabsArea{
+.tabsArea {
+    width: 100%;
     height: 2rem;
     background-color: rgb(37, 37, 37);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .tabsContainer{
+    overflow-x: hidden;
+
+    .tabsContainer {
+        width: 96%;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        height: 100%;
+        overflow-x: hidden;
     }
-    .controlMenu{
+
+    .controlMenu {
+        width: 4%;
         display: flex;
         justify-content: center;
         align-items: center;
         padding-right: 0.6rem;
-        .controlButton{
+
+        .controlButton {
             width: 1.3rem;
             height: 1.3rem;
             background: transparent;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            .dots{
+
+            .dots {
                 scale: 1.8;
                 transform: rotateZ(90deg);
-                path{
+
+                path {
                     fill: white;
                 }
             }
 
-            &:hover{
+            &:hover {
                 background-color: rgb(49, 49, 49);
             }
         }

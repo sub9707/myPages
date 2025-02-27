@@ -16,7 +16,7 @@ const WindowTabs: React.FC<WindowTabsProps> = ({ isPreview }) => {
     <div className={styles.tabsArea}>
       <div className={styles.tabsContainer}>
         {isPreview
-          ? previewFiles.map((item, idx) => <WindowTabButton key={idx} title={item} selected isPreview={isPreview} />)
+          ? previewFiles.map((item, idx) => <WindowTabButton key={idx} title={item} selected={false}  isPreview={isPreview} />)
           : editorFiles.map((item, idx) => <WindowTabButton key={idx} title={item} selected={false} isPreview={isPreview} />)}
 
         {/* <WindowTabButton title={'test.tsx'} selected />

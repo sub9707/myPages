@@ -1,23 +1,29 @@
-.buttonWrapper{
+.buttonWrapper {
     display: flex;
     align-items: center;
-    width: auto;
+    min-width: 120px; // 버튼 크기 고정
     height: 100%;
     justify-content: space-between;
     padding-inline: 0.5rem;
-    gap:0.5rem;
+    gap: 0.5rem;
     cursor: pointer;
     border-right: solid rgb(63, 63, 63) 1px;
-    
-    .tabLogo{
+    flex-shrink: 0; // 버튼 크기 줄어들지 않도록 설정
+    user-select: none;
+
+    .tabLogo {
         width: 1.1rem;
         height: 1.1rem;
     }
-    .tabTitle{
+    .tabTitle {
         font-size: 0.8rem;
-        color:gray;
+        color: gray;
+        overflow: hidden; // 넘치는 텍스트 숨김
+        white-space: nowrap; // 줄바꿈 방지
+        text-overflow: ellipsis; // 넘치는 텍스트 '...' 처리
+        max-width: 80px; // 텍스트 최대 너비 설정
     }
-    .tabClose{
+    .tabClose {
         width: 1.2rem;
         height: 1.2rem;
         display: flex;
@@ -27,22 +33,24 @@
         background-color: transparent;
         border: none;
         border-radius: 4px;
-        &:hover{
+
+        &:hover {
             background-color: rgb(46, 46, 46);
         }
 
-        .closeIcon{
+        .closeIcon {
             scale: 2;
-            path{
-                fill:rgb(119, 119, 119);
+            path {
+                fill: rgb(119, 119, 119);
             }
         }
     }
 }
 
-.active{
+.active {
     background-color: rgb(63, 62, 62);
-    .tabTitle{
-        color:rgb(209, 209, 209);
+
+    .tabTitle {
+        color: rgb(209, 209, 209);
     }
 }
