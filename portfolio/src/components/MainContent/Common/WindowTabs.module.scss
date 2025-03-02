@@ -5,7 +5,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    overflow-x: hidden;
+    overflow: hidden;
 
     .tabsContainer {
         width: 96%;
@@ -13,7 +13,10 @@
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        overflow-x: hidden;
+        overflow-x: auto; 
+        white-space: nowrap;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
     }
 
     .controlMenu {
@@ -45,4 +48,9 @@
             }
         }
     }
+}
+
+/* 스크롤바 숨김 (선택 사항) */
+.tabsContainer::-webkit-scrollbar {
+    display: none;
 }

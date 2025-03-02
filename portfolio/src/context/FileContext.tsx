@@ -3,10 +3,14 @@ import React, { createContext, useContext, useState, ReactNode } from "react";
 interface FileContextType {
   editorFiles: string[];
   previewFiles: string[];
+  selectedEditorFile: string | null;
+  selectedPreviewFile: string | null;
   addEditorFile: (fileName: string) => void;
   addPreviewFile: (fileName: string) => void;
   removeEditorFile: (fileName: string) => void;
   removePreviewFile: (fileName: string) => void;
+  selectEditorFile: (fileName: string) => void;
+  selectPreviewFile: (fileName: string) => void;
   isEditorFileExists: (fileName: string) => boolean;
   isPreviewFileExists: (fileName: string) => boolean;
   canAddEditorFile: (fileName: string) => boolean;
@@ -23,6 +27,8 @@ interface FileProviderProps {
 export const FileProvider: React.FC<FileProviderProps> = ({ children }) => {
   const [editorFiles, setEditorFiles] = useState<string[]>([]);
   const [previewFiles, setPreviewFiles] = useState<string[]>([]);
+  const [selectedEditorFile, setSelectedEditorFile] = useState<string | null>(null);
+  const [selectedPreviewFile, setSelectedPreviewFile] = useState<string | null>(null);
 
   // 에디터 파일 존재 여부 확인
   const isEditorFileExists = (fileName: string): boolean => editorFiles.includes(fileName);
@@ -38,6 +44,7 @@ export const FileProvider: React.FC<FileProviderProps> = ({ children }) => {
   const addEditorFile = (fileName: string): void => {
     if (canAddEditorFile(fileName)) {
       setEditorFiles((prev) => [...prev, fileName]);
+      setSelectedEditorFile(fileName);
     }
   };
 
@@ -45,17 +52,36 @@ export const FileProvider: React.FC<FileProviderProps> = ({ children }) => {
   const addPreviewFile = (fileName: string): void => {
     if (canAddPreviewFile(fileName)) {
       setPreviewFiles((prev) => [...prev, fileName]);
+      setSelectedPreviewFile(fileName);
     }
   };
 
   // 에디터 파일 제거
   const removeEditorFile = (fileName: string): void => {
-    setEditorFiles((prev) => prev.filter((file) => file !== fileName));
+    setEditorFiles((prev) => {
+      const updatedFiles = prev.filter((file) => file !== fileName);
+      setSelectedEditorFile(updatedFiles.length > 0 ? updatedFiles[updatedFiles.length - 1] : null);
+      return updatedFiles;
+    });
   };
 
   // 프리뷰 파일 제거
   const removePreviewFile = (fileName: string): void => {
-    setPreviewFiles((prev) => prev.filter((file) => file !== fileName));
+    setPreviewFiles((prev) => {
+      const updatedFiles = prev.filter((file) => file !== fileName);
+      setSelectedPreviewFile(updatedFiles.length > 0 ? updatedFiles[updatedFiles.length - 1] : null);
+      return updatedFiles;
+    });
+  };
+
+  // 에디터 파일 선택
+  const selectEditorFile = (fileName: string): void => {
+    if (isEditorFileExists(fileName)) setSelectedEditorFile(fileName);
+  };
+
+  // 프리뷰 파일 선택
+  const selectPreviewFile = (fileName: string): void => {
+    if (isPreviewFileExists(fileName)) setSelectedPreviewFile(fileName);
   };
 
   return (
@@ -63,10 +89,14 @@ export const FileProvider: React.FC<FileProviderProps> = ({ children }) => {
       value={{
         editorFiles,
         previewFiles,
+        selectedEditorFile,
+        selectedPreviewFile,
         addEditorFile,
         addPreviewFile,
         removeEditorFile,
         removePreviewFile,
+        selectEditorFile,
+        selectPreviewFile,
         isEditorFileExists,
         isPreviewFileExists,
         canAddEditorFile,
