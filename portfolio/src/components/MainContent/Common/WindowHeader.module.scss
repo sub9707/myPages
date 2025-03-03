@@ -1,7 +1,8 @@
 .headerArea {
     min-height: 2rem;
     max-height: 3.4rem;
-    width: 50%;
+    width: 100%;
+    min-width: 50%;
     overflow: hidden;
     border-bottom: 0.05rem rgb(121, 121, 121) solid;
     display: flex;
