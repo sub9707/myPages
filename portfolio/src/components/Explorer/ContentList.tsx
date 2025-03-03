@@ -29,7 +29,7 @@ const ContentList: React.FC<ContentListProps> = ({
     files
 }) => {
     const [isOpen, setIsOpen] = useState(false);
-    const { addEditorFile, addPreviewFile } = useFileContext();
+    const { selectEditorFile, selectPreviewFile , addPreviewFile, addEditorFile} = useFileContext();
 
     const toggleOpen = () => {
         setIsOpen((prevState) => !prevState);
@@ -40,6 +40,8 @@ const ContentList: React.FC<ContentListProps> = ({
         setSelectedItem(filename);
         addEditorFile(filename);
         addPreviewFile(filename);
+        selectEditorFile(filename);
+        selectPreviewFile(filename);
     }
 
     return (

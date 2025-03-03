@@ -1,25 +1,39 @@
-import React, { useState } from "react";
-import fileContent from "/src/components/MainContent/Files/test.md?raw";
-import { ThemeContext } from "../../../context/ThemeContext";
-import styles from './CodeEditor.module.scss'
+import React, { useEffect, useState } from "react";
+import { useFileContext } from "../../../context/FileContext";
+import styles from "./CodeEditor.module.scss";
 import MarkdownEditor from "@uiw/react-markdown-editor";
-import './editorTest.scss'
+import "./editorTest.scss";
 
 const CodeEditor: React.FC = () => {
-  const [code, setCode] = useState<string>(fileContent);
+  const { selectedEditorFile } = useFileContext();
+  const [code, setCode] = useState<string>("");
 
-  const context = React.useContext(ThemeContext);
+  useEffect(() => {
+    console.log(selectedEditorFile)
+    if (selectedEditorFile) {
+      fetch(`/src/assets/markdown/${selectedEditorFile}.md`)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("파일을 찾을 수 없습니다.");
+          }
+          return response.text();
+        })
+        .then((text) => setCode(text))
+        .catch((err) => console.error("파일을 불러오는 데 실패했습니다.", err));
+    } else {
+      setCode("");
+    }
+  }, [selectedEditorFile]);
 
-  if (!context) {
-    throw new Error('useContext가 ThemeProvider 내에서 사용되지 않음');
+  // 선택된 파일이 없으면 에디터 숨김
+  if (!selectedEditorFile) {
+    return null;
   }
-
-  const { theme } = context;
 
   return (
     <MarkdownEditor
       value={code}
-      onChange={(value, viewUpdate) => { }}
+      onChange={(value) => setCode(value || "")}
       className={styles.editor}
       visible={true}
       enableScroll={true}
@@ -28,7 +42,6 @@ const CodeEditor: React.FC = () => {
       showToolbar={true}
       height="88vh"
     />
-
   );
 };
 
