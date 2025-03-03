@@ -15,6 +15,8 @@ interface FileContextType {
   isPreviewFileExists: (fileName: string) => boolean;
   canAddEditorFile: (fileName: string) => boolean;
   canAddPreviewFile: (fileName: string) => boolean;
+  setEditorFiles: React.Dispatch<React.SetStateAction<string[]>>;
+  setPreviewFiles: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 // 파일 관리 컨텍스트 생성
@@ -101,6 +103,8 @@ export const FileProvider: React.FC<FileProviderProps> = ({ children }) => {
         isPreviewFileExists,
         canAddEditorFile,
         canAddPreviewFile,
+        setEditorFiles,
+        setPreviewFiles,
       }}
     >
       {children}
