@@ -5,11 +5,11 @@ import MarkdownEditor from "@uiw/react-markdown-editor";
 import "./editorTest.scss";
 
 const CodeEditor: React.FC = () => {
-  const { selectedEditorFile } = useFileContext();
+  const { selectedEditorFile, selectedPreviewFile, previewFiles } = useFileContext();
   const [code, setCode] = useState<string>("");
+  const [isPreviewMode, setIsPreviewMode] = useState<boolean>(true);
 
   useEffect(() => {
-    console.log(selectedEditorFile)
     if (selectedEditorFile) {
       fetch(`/src/assets/markdown/${selectedEditorFile}.md`)
         .then((response) => {
@@ -25,6 +25,15 @@ const CodeEditor: React.FC = () => {
     }
   }, [selectedEditorFile]);
 
+  // 프리뷰 모드 설정
+  useEffect(() => {
+    if (selectedPreviewFile) {
+      setIsPreviewMode(true);
+    } else if (previewFiles.length > 0) {
+      setIsPreviewMode(true);
+    }
+  }, [selectedPreviewFile, previewFiles]);
+
   // 선택된 파일이 없으면 에디터 숨김
   if (!selectedEditorFile) {
     return null;
@@ -37,7 +46,7 @@ const CodeEditor: React.FC = () => {
       className={styles.editor}
       visible={true}
       enableScroll={true}
-      enablePreview={true}
+      enablePreview={isPreviewMode} // 프리뷰 모드 활성화/비활성화
       previewWidth="50%"
       showToolbar={true}
       height="88vh"

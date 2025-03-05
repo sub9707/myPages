@@ -2,8 +2,10 @@
     display: flex;
     flex-direction: column;
     height: 100vh; /* 전체 화면을 차지하도록 설정 */
-
+    background-color: #232222 !important;
   }
+
+  .md-editor-inner{}
   
   .md-editor-content {
     flex-grow: 1;
@@ -16,9 +18,23 @@
     height: auto; /* 자동 조정 */
   }
   .md-editor-preview{
+    width: 50%;
     height: 87vh;
+    background-color: #232222;
   }
 
   .md-editor-toolbar-warp{
     display: none;
+  }
+
+  .cm-editor{
+    background-color: #232222;
+  }
+
+  .cm-gutters{
+    background-color: #232222 !important;
+  }
+
+  .wmde-markdown{
+    background-color: #232222;
   }

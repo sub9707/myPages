@@ -71,7 +71,11 @@ export const FileProvider: React.FC<FileProviderProps> = ({ children }) => {
   const removePreviewFile = (fileName: string): void => {
     setPreviewFiles((prev) => {
       const updatedFiles = prev.filter((file) => file !== fileName);
-      setSelectedPreviewFile(updatedFiles.length > 0 ? updatedFiles[updatedFiles.length - 1] : null);
+      if (updatedFiles.length === 0) {
+        setSelectedPreviewFile(null);
+      } else {
+        setSelectedPreviewFile((prevSelected) => prevSelected && updatedFiles.includes(prevSelected) ? prevSelected : updatedFiles[updatedFiles.length - 1]);
+      }
       return updatedFiles;
     });
   };
@@ -83,7 +87,13 @@ export const FileProvider: React.FC<FileProviderProps> = ({ children }) => {
 
   // 프리뷰 파일 선택
   const selectPreviewFile = (fileName: string): void => {
-    if (isPreviewFileExists(fileName)) setSelectedPreviewFile(fileName);
+    if (isPreviewFileExists(fileName)) {
+      setSelectedPreviewFile(fileName);
+    } else if (previewFiles.length > 0) {
+      setSelectedPreviewFile(previewFiles[previewFiles.length - 1]);
+    } else {
+      setSelectedPreviewFile(null);
+    }
   };
 
   return (
